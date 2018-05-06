@@ -70,5 +70,6 @@ after_script:
 # - colordiff --minimal --side-by-side composer-orig.json composer.json
 
 - composer console -- --ansi
+- composer -- console --ansi
 
 - composer console -- list debug --ansi
