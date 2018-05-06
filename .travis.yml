@@ -47,3 +47,5 @@ install:
   composer require symfony/yaml
   # composer require symfony/dotenv --dev
   composer require symfony/console
+
+script: true
