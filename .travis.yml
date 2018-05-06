@@ -71,7 +71,7 @@ after_script:
 
 - composer exec --list
 - composer run-script --list
-- composer console -- --ansi
-- composer -- console --ansi
+- composer exec console -- --ansi
+- composer exec -- console --ansi
 
-- composer console -- list debug --ansi
+- composer exec console -- list debug --ansi
