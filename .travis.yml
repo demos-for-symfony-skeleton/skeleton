@@ -19,7 +19,7 @@ php:
 
 env:
   global:
-  - COMPOSER_BIN_DIR=bin
+  # - COMPOSER_BIN_DIR=bin
   # - COMPOSER=composer-dev.json # https://travis-ci.org/symfony-flex-demo/env-COMPOSER-and-symfony.lock
   # - PATH=$TRAVIS_BUILD_DIR/bin::$PATH
 
@@ -46,6 +46,7 @@ install:
   composer require symfony/flex
   composer require symfony/yaml
   # composer require symfony/dotenv --dev
+  composer config bin-dir bin
   composer require symfony/console
 
 script:
