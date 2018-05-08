@@ -43,7 +43,7 @@ install:
 - |
   # mv composer.json composer-orig.json
   # mv composer-skeleton.json composer.json
-  composer create-project -vvv --no-plugins --no-install symfony/skeleton
+  composer create-project -vvv --no-scripts --no-plugins --no-install symfony/skeleton
   cd skeleton
   composer config bin-dir bin
   composer update symfony/flex
