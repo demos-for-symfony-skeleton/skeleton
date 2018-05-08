@@ -43,9 +43,10 @@ install:
 - |
   # mv composer.json composer-orig.json
   # mv composer-skeleton.json composer.json
-  # composer --no-install create-project -vvv --no-scripts --no-plugins --no-install symfony/skeleton
-  git clone https://github.com/symfony/skeleton.git
+  composer create-project -vvv --no-scripts --no-plugins --no-install symfony/skeleton
+  # git clone https://github.com/symfony/skeleton.git
   cd skeleton
+  pwd
   composer config bin-dir bin
   composer update symfony/flex
   composer update symfony/yaml
