@@ -42,7 +42,7 @@ before_install:
   fi
 install:
 - composer global require sensiolabs/security-checker
-- composer --working-dir=.. install
+- composer install
 - |
   composer create-project --no-install symfony/skeleton
   cd skeleton
