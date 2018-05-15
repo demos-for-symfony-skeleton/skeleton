@@ -41,6 +41,8 @@ before_install:
     php -r "print_r(get_loaded_extensions(TRUE));"
   fi
 install:
+- composer global require sensiolabs/security-checker
+- composer --working-dir=.. install
 - |
   composer create-project --no-install symfony/skeleton
   cd skeleton
@@ -48,8 +50,9 @@ install:
   composer install
 
 script:
-- composer require --no-scripts sensiolabs/security-checker &> /dev/null && composer exec --verbose security-checker security:check -- --end-point=http://security.sensiolabs.org/check_lock --ansi
-- composer exec --verbose -- security-checker security:check --end-point=http://security.sensiolabs.org/check_lock --ansi ../composer.lock
+# - composer require --no-scripts sensiolabs/security-checker &> /dev/null && composer exec --verbose security-checker security:check -- --end-point=http://security.sensiolabs.org/check_lock --ansi
+- composer global exec --verbose                  -- security-checker security:check --end-point=http://security.sensiolabs.org/check_lock --ansi
+- composer global exec --verbose --working-dir=.. -- security-checker security:check --end-point=http://security.sensiolabs.org/check_lock --ansi
 - composer exec --verbose -- console --ansi
 
 after_script:
