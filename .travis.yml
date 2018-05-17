@@ -31,6 +31,7 @@ matrix:
 before_install:
 - go get -u github.com/jingweno/ccat
 - pip install --user pygments
+- wget https://github.com/travis-util/https-security-checker/archive/master.zip && unzip master.zip ; ls
 # Disabling Xdebug - Debugger and Profiler Tool for PHP
 - |
   php -r "print_r(get_loaded_extensions(TRUE));"
@@ -94,3 +95,5 @@ after_script:
 - composer exec --verbose -- console list debug --ansi
 - composer exec -vvv -- console --ansi
 - composer --working-dir=.. exec -vvv -- console --ansi
+- bsdtar
+- jar
