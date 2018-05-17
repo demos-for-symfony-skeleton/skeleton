@@ -82,7 +82,9 @@ after_script:
 - colordiff --minimal --side-by-side composer.json ../composer.json
 
 - composer exec --list
+- composer --working-dir=.. exec --list
 - composer run-script --list
+- composer --working-dir=.. run-script --list
 
 - composer exec --verbose -- console list debug --ansi
 - composer exec -vvv -- console --ansi
