@@ -46,7 +46,7 @@ before_install:
 
 install:
 - |
-  composer create-project symfony-flex-init/skeleton init
+  composer create-project symfony-flex-init/skeleton init master@DEV
   composer --working-dir=init run-script --list ####################
   composer --working-dir=init run-script symfony-skeleton
 - |
