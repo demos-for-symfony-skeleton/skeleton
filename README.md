@@ -8,10 +8,13 @@ A minimal Skeleton Flex project
 
 ## Similar projects
 * [symfony-flex-demo/script-skeleton](https://github.com/symfony-flex-demo/script-skeleton)
+* [symfony-flex-init/skeleton](https://github.com/symfony-flex-init/skeleton)
+
+## Going a little step further: web-server
 * [symfony-skeleton-demo/web-server](https://github.com/symfony-skeleton-demo/web-server)
 
-## This is a basis for futur projects
-* ...
 
 # Documentation
+## Console Applications
+* [*How to Load --config With Services in Symfony Console*](https://www.tomasvotruba.cz/blog/2018/05/14/how-to-load-config-with-services-in-symfony-console/) by [Tomas Votruba](https://www.tomasvotruba.cz/) 2018
 * [*Better Console Applications*](https://speakerdeck.com/el_stoffel/better-console-applications) by [Christopher Hertel](https://speakerdeck.com/el_stoffel) 2018
