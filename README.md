@@ -1,4 +1,4 @@
-# skeleton
+# [symfony-skeleton-demo](https://symfony-skeleton-demo.github.io)/skeleton
 A minimal Skeleton Flex project
 
 [![Build Status](https://travis-ci.org/symfony-skeleton-demo/skeleton.svg?branch=master)](https://travis-ci.org/symfony-skeleton-demo/skeleton)
