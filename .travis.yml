@@ -4,8 +4,8 @@ language: php
 addons:
   apt:
     packages:
-    - elinks # For dysplaying php files on console.
     - colordiff
+    - elinks # For dysplaying php files on console.
 
 cache:
   directories:
