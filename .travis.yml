@@ -46,21 +46,29 @@ before_install:
 
 install:
 - |
+  composer create-project symfony-flex-init/skeleton init
+  composer --working-dir=init run-script --list ####################
+  composer --working-dir=init run-script symfony-skeleton
+- |
   composer create-project --no-install symfony/skeleton
-  cd skeleton
-  composer config bin-dir bin
-  composer install
-- composer --working-dir=.. install # Needs to be after to allow the previous script to show downloads of new versions.
+  # cd skeleton
+  composer --working-dir=skeleton config bin-dir bin
+  composer --working-dir=skeleton install
+- composer install # Needs to be after to allow the previous script to show downloads of new versions.
 
 before_script:
 - curl_security_check composer.lock
-- curl_security_check ../composer.lock
+- curl_security_check init/composer.lock
+- curl_security_check init/skeleton/composer.lock
+- curl_security_check skeleton/composer.lock
 #^ This checks that the application doesn't use dependencies with known security vulnerabilities
 
 
 script:
 - composer exec --verbose -- console --ansi
-- composer --working-dir=.. exec --verbose -- console --ansi
+- composer --working-dir=init/skeleton exec --verbose -- console --ansi
+- composer --working-dir=init exec --verbose -- composer --working-dir=skeleton exec --verbose -- console --ansi
+- composer --working-dir=skeleton exec --verbose -- console --ansi
 
 
 after_script:
@@ -76,15 +84,19 @@ after_script:
 
 - composer show --latest
 - $GOPATH/bin/ccat composer.json
-- $GOPATH/bin/ccat ../composer.json
+# - $GOPATH/bin/ccat ../composer.json
 # - diff --minimal --side-by-side --color composer-dev.json composer.json needs a Ubuntu version newer than Trusty
-- colordiff --minimal --side-by-side composer.json ../composer.json
+- colordiff --minimal --side-by-side composer.json init/skeleton/composer.json
+- colordiff --minimal --side-by-side composer.json skeleton/composer.json
+- colordiff --minimal --side-by-side init/skeleton/composer.json skeleton/composer.json
 
 - composer exec --list
-- composer --working-dir=.. exec --list
+- composer --working-dir=init/skeleton exec --list
+- composer --working-dir=skeleton exec --list
 - composer run-script --list
-- composer --working-dir=.. run-script --list
+- composer --working-dir=init/skeleton run-script --list
+- composer --working-dir=skeleton run-script --list
 
 - composer exec --verbose -- console list debug --ansi
 - composer exec -vvv -- console --ansi
-- composer --working-dir=.. exec -vvv -- console --ansi
+# - composer --working-dir=.. exec -vvv -- console --ansi
